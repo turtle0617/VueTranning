@@ -11,15 +11,11 @@
 
 <body>
   <div id="app-7">
+    <prompt-component :user-name="name"></prompt-component>
+    <br>
     <div id="blog-posts-events-demo">
       <div :style="{ fontSize: postFontSize + 'em' }">
-        <blog-post
-          v-for="post in posts"
-          v-bind:key="post.id"
-          v-bind:post="post"
-          v-on:enlarge-text="onEnlargeText"
-
-        ></blog-post>
+        <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="onEnlargeText"></blog-post>
       </div>
     </div>
 

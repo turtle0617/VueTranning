@@ -17,14 +17,14 @@
     <button type="button" class="create" v-on:click='addTask'>create</button>
     <ul class="todolist">
       <li v-for="task in tasks" class="task">
-        <label v-if="!task.isEdit" v-bind:class="{ complete: task.isComplete }" v-on:click="complete(task)"> {{task.title}}</label>
-        <input v-if="task.isEdit" type="text" v-model="task.title" v-on:keyup.enter="changeStatus(task)">
-        <button v-if="!task.isEdit" class="modifyTask" v-on:click="changeStatus(task)">修改</button>
-        <i v-if="!task.isEdit" class="fas fa-times deleteTask" v-on:click="deleteTask(task)"></i>
+        <label v-bind:class="{status:task.label_Status,Strikethrough:task.isComplete}" v-on:click="complete(task)"> {{task.title}}</label>
+        <input type="text" v-bind:class="{status:task.input_Status}" v-model="task.title" v-on:keyup.enter="changeStatus(task)">
+        <button class="modifyTask" v-on:click="changeStatus(task)">修改</button>
+        <i v-bind:class="{status:task.label_Status}" class="fas fa-times deleteTask" v-on:click="deleteTask(task)"></i>
       </li>
     </ul>
   </div>
-  <script src='./index.js'></script>
+  <script src='./index_component.js'></script>
 </body>
 
 </html>

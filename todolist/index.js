@@ -13,9 +13,7 @@ new Vue({
       this.tasks.push({
         id: this.tasks.length,
         title: this.newTask,
-        complete: false,
-        input_Status: true,
-        label_Status: false,
+        isEdit:false,
         isComplete: false
       })
       this.newTask = ""
@@ -24,8 +22,7 @@ new Vue({
       this.tasks.splice(this.tasks.indexOf(task), 1);
     },
     changeStatus: function(task) {
-      task.input_Status = !task.input_Status;
-      task.label_Status = !task.label_Status;
+      task.isEdit = !task.isEdit;
     },
     complete: function(task) {
       task.isComplete = !task.isComplete;
