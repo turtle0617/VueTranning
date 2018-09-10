@@ -1,12 +1,3 @@
-Vue.component('prompt-component', {
-  template: '<button @click="sayHi(userName)">Say Hi!</button>',
-  props: ['user-name'], //使用`props`聲明它所獲得的資料
-  methods: {
-    sayHi: function(name) {
-      alert('Hi ' + name);
-    }
-  }
-})
 Vue.component('todo-item', {
   props: ['todo'],
   template: '<li>{{ todo.text }}</li>'
@@ -31,6 +22,25 @@ Vue.component('blog-post', {
     </div>
   `
 })
+Vue.component('magic-eight-ball', {
+  data: function () {
+    return {
+      possibleAdvice: ['Yes', 'No', 'Maybe']
+    }
+  },
+  methods: {
+    giveAdvice: function () {
+      var randomAdviceIndex = Math.floor(Math.random() * this.possibleAdvice.length)
+      this.$emit('give-advice', this.possibleAdvice[randomAdviceIndex])
+    }
+  },
+  template: `
+    <button v-on:click="giveAdvice">
+      Click me for advice
+    </button>
+  `
+})
+
 var app7 = new Vue({
   el: '#app-7',
   data: {
@@ -51,6 +61,9 @@ var app7 = new Vue({
   onEnlargeText: function (enlargeAmount) {
     console.log(enlargeAmount);
     this.postFontSize += enlargeAmount
+  },
+  showAdvice: function (advice) {
+        alert(advice)
+    }
   }
-}
 })

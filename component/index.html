@@ -11,7 +11,7 @@
 
 <body>
   <div id="app-7">
-    <prompt-component :user-name="name"></prompt-component>
+    <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
     <br>
     <div id="blog-posts-events-demo">
       <div :style="{ fontSize: postFontSize + 'em' }">
