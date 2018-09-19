@@ -11,14 +11,15 @@
 
 <body>
   <div id="app-7">
-    <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
+    <!-- <magic-eight-ball v-on:give-advice="showAdvice"></magic-eight-ball>
     <br>
     <div id="blog-posts-events-demo">
       <div :style="{ fontSize: postFontSize + 'em' }">
         <blog-post v-for="post in posts" v-bind:key="post.id" v-bind:post="post" v-on:enlarge-text="onEnlargeText"></blog-post>
       </div>
-    </div>
-
+    </div> -->
+    <custom-input v-bind:value="searchText" v-on:input="searchText = $event"></custom-input>
+    <!-- <todo-item v-bind:todo='todo'></todo-item> -->
   </div>
 
   <script src='./index.js'></script>

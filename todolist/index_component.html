@@ -14,7 +14,9 @@
 <body>
   <div class="todoapp">
     <add-component v-on:give-task="receiveTask"></add-component>
-    <show-component  v-bind:task="task" v-bind:tasks="tasks" v-for="task in tasks" ></show-component>
+    <show-component  v-bind:tasks="tasks"  >
+
+    </show-component>
   </div>
   <script src='./index_component.js'></script>
 </body>

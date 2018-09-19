@@ -1,15 +1,5 @@
-Vue.component('todo-item', {
-  props: ['todo'],
-  template: '<li>{{ todo.text }}</li>'
-})
-Vue.component('button-counter', {
-  data: function () {
-    return {
-      count: 0
-    }
-  },
-  template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
-})
+
+
 Vue.component('blog-post', {
   props: ['post'],
   template: `
@@ -22,6 +12,7 @@ Vue.component('blog-post', {
     </div>
   `
 })
+
 Vue.component('magic-eight-ball', {
   data: function () {
     return {
@@ -40,12 +31,33 @@ Vue.component('magic-eight-ball', {
     </button>
   `
 })
+Vue.component('todo-item', {
+  data:function () {
+    return{
+      todo: [
+        { id: 0, text: 'a' },
+        { id: 1, text: 'b' },
+        { id: 2, text: 'c' }
+      ]
+    }
+  },
+  props: ['todo'],
 
+  template: '<li>{{ todo }}</li>'
+})
+Vue.component('custom-input', {
+  props: ['value'],
+  template: `
+    <input
+      v-bind:value="value"
+      v-on:input="$emit('input', $event.target.value)"
+    >
+  `
+})
 var app7 = new Vue({
   el: '#app-7',
   data: {
-    name:['peter'],
-    groceryList: [
+    todo: [
       { id: 0, text: 'Vegetables' },
       { id: 1, text: 'Cheese' },
       { id: 2, text: 'Whatever else humans are supposed to eat' }
@@ -55,7 +67,7 @@ var app7 = new Vue({
      { id: 2, title: 'Blogging with Vue' },
      { id: 3, title: 'Why Vue is so fun' }
    ],
-    postFontSize: 1
+    searchText: ""
  },
  methods: {
   onEnlargeText: function (enlargeAmount) {
